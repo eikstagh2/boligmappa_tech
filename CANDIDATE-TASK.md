@@ -1,6 +1,8 @@
 # Technical Interview Task — Senior Full-Stack .NET Developer
 
-**Time limit:** 2 hours
+**Time limit:** 2 hours (take-home)
+
+> **How this works:** This is a **take-home coding task** to be completed **before the interview**. Parts 1 and 2 are done on your own time. During the actual interview, we will review your code together and discuss your approach and architectural thinking (Part 3). There are no surprises — the discussion topics are listed below so you can prepare.
 
 ---
 
@@ -8,7 +10,7 @@
 
 You are joining a team that maintains a **property documentation platform**. The system allows property owners to store and retrieve documents (floor plans, electrical certificates, inspection reports, etc.) related to their properties.
 
-The existing backend is a legacy **.NET Framework 4.8 Web API** with a monolithic SQL Server database. The team has started migrating to **.NET 8** and wants to modernize the architecture incrementally.
+The existing backend is a legacy **.NET Framework 4.8 Web API** with a monolithic SQL Server database. The team has started migrating to **.NET 8+** and wants to modernize the architecture incrementally.
 
 Your task is to build a small, self-contained feature that demonstrates how you would approach this modernization.
 
@@ -24,9 +26,9 @@ Property documents can have an **expiry date** (e.g., an electrical inspection c
 
 ---
 
-## Part 1 — Backend API (.NET 8) `[~60 min]`
+## Part 1 — Backend API (.NET 8+) `[~60 min]`
 
-Create a **.NET 8 Web API** project with the following:
+Create a **.NET 8+ Web API** project with the following:
 
 ### Data Model
 
@@ -81,11 +83,11 @@ Create a **small React (or Angular) application** that:
 
 ---
 
-## Part 3 — Architecture & Discussion `[~20 min]`
+## Part 3 — Architecture & Discussion (during the interview) `[~20 min]`
 
-After coding, we will have a conversation about your choices. Be prepared to discuss:
+This part takes place **during the interview**, not as part of the take-home. We will walk through your code together and discuss your choices. Be prepared to discuss:
 
-1. **Legacy migration** — The existing system uses .NET Framework 4.8 with ADO.NET and stored procedures. How would you approach migrating to .NET 8 + EF Core incrementally? What are the risks?
+1. **Legacy migration** — The existing system uses .NET Framework 4.8 with ADO.NET and stored procedures. How would you approach migrating to .NET 8+ / EF Core incrementally? What are the risks?
 
 2. **Database design** — If the system has 10 million documents, how would you ensure the "expiring documents" query performs well? What indexes would you add?
 
