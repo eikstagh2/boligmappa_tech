@@ -50,7 +50,7 @@ Bruk **EF Core med SQL Server** (LocalDB eller en in-memory-provider for øvelse
 
 ### Krav
 
-- **Ren arkitektur / prosjektstruktur** — Hvordan organiserer du lag, tjenester og ansvarsområder?
+- **Clean architecture / prosjektstruktur** — Hvordan organiserer du lag, tjenester og ansvarsområder?
 - **EF Core-bruk** — Effektive spørringer, riktig bruk av navigasjonsegenskaper, migreringstilnærming.
 - **Inputvalidering og feilhåndtering** — Hvordan håndterer du ugyldig input, manglende ressurser, autorisasjon?
 - **Paginering** — Implementer markør-basert eller offset-paginering på det interne endepunktet.
@@ -151,7 +151,8 @@ public class DocumentService
 
 ## Hva du skal levere
 
-- En lenke til ditt **forkede repository** med løsningen din på en feature-branch (med en åpen PR).
+- Foretrukket: En lenke til ditt **forked repository** med løsningen din på en feature-branch (med en åpen PR).
+- Hvis du ønsker å holde koden privat: Del en **zippet prosjektmappe** via en fildelingstjeneste (for eksempel Fileshot, Google Drive, OneDrive eller lignende) og send oss lenken.
 - Vi verdsetter **fremgang og resonering over perfeksjon** — det er helt greit om du ikke fullfører alt. Fortell oss hva du ville gjort videre.
 
 ---
