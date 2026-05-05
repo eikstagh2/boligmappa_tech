@@ -87,18 +87,28 @@ Lag en **liten React- (eller Angular-) applikasjon** som:
 
 Denne delen skjer **under selve intervjuet**, ikke som en del av hjemmeoppgaven. Vi gjennomgår koden din sammen og diskuterer valgene dine. Vær forberedt på å diskutere:
 
-1. **Migrering fra legacy** — Det eksisterende systemet bruker .NET Framework 4.8 med ADO.NET og stored procedures. Hvordan ville du tilnærmet deg en migrering til .NET 8+ / EF Core stegvis? Hva er risikoene?
+1. **Migrering fra legacy** — Det eksisterende systemet bruker .NET Framework 4.8 med ADO.NET og stored procedures. Hvordan ville du tilnærmet deg en migrering til .NET 8+ / EF Core stegvis? Hva er risikoene?              
+   - Stegvis flytte koden over til REST-kall, med egne database lag og komponenter for business logikk, stored procedures logikk, bør overføres til C# kode i forretningslaget
+   - Risikoer: endel api'er er sikkert endret, endringer er sikkert gjort asp.net, og noe kode kan sikkert oppføre seg annerledes, feks json, crypto, serialsering o.l.
+     
+3. **Databasedesign** — Hvis systemet har 10 millioner dokumenter, hvordan ville du sikret at «utløpende dokumenter»-spørringen yter godt? Hvilke indekser ville du lagt til?
+  - Index på expiryDate Ascending, og documentId, da vil utløpende dokumenter ligger først i "køen"
+  - Annet er mulighet for å se på sharding teknolgi, for å spre dokumentene over flere servere, og avlaste 1 server.
 
-2. **Databasedesign** — Hvis systemet har 10 millioner dokumenter, hvordan ville du sikret at «utløpende dokumenter»-spørringen yter godt? Hvilke indekser ville du lagt til?
-
-3. **Sky og containere** — Hvis denne tjenesten skulle deployes til Azure (eller AWS):
+4. **Sky og containere** — Hvis denne tjenesten skulle deployes til Azure (eller AWS):
    - Hvordan ville du containerisert den?
    - Hvilke Azure-tjenester ville du brukt (App Service, AKS, Azure SQL osv.)?
    - Hvordan ville du håndtert batch-varslingsjobben (Azure Functions, Hangfire, hosted service)?
 
-4. **CI/CD** — Beskriv hvordan du ville satt opp en CI/CD-pipeline for dette prosjektet. Hvilke steg? Hvilke kvalitetsporter?
+5. **CI/CD** — Beskriv hvordan du ville satt opp en CI/CD-pipeline for dette prosjektet. Hvilke steg? Hvilke kvalitetsporter?
+   - For en PR
+   -    ville jeg kjørt tester og avbrutt ved feil
+   -    kjørt kodesjekk for kvalitet, minst mulig warnings for potensielle kjørefeil
+   - For publish til prod/staging
+   -    Bygge koden, og avbrutt ved uoppdaget feil
+   -    Deploy til sky, og avvente restart
 
-5. **Kodegjennomgang** — Se på kodesnutten nedenfor og gi en gjennomgang. Hvilke problemer ser du? Hvordan ville du refaktorert den?
+7. **Kodegjennomgang** — Se på kodesnutten nedenfor og gi en gjennomgang. Hvilke problemer ser du? Hvordan ville du refaktorert den?
 
 ```csharp
 // Legacy .NET Framework 4-kode — gjennomgå denne
